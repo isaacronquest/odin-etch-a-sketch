@@ -12,7 +12,7 @@ function newSketch () {
             let block = document.createElement('div');
             block.className = 'block';
             block.addEventListener('mouseover', () => {
-                block.style.backgroundColor = 'black';
+                block.style.backgroundColor = getRandomColor();
             });
             row.appendChild(block);
         }
@@ -25,6 +25,9 @@ newSketch();
 
 newSketchBtn.addEventListener('click', () => {
     let size = prompt('Enter the size of the sketch','');
+    if (size > 100) {
+        size = prompt('Number cannot be over 100')
+    }
     width = size;
     height = size;
     while (canvas.firstChild) {
@@ -33,4 +36,10 @@ newSketchBtn.addEventListener('click', () => {
     newSketch();
 });
 
-
+function getRandomColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            
+            return `rgb(${r}, ${g}, ${b})`;
+        }
