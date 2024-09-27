@@ -9,16 +9,17 @@ body {
 }
 
 #canvas {
+    display: flex;
+    flex-direction: column;
     width: 960px;
     height: 960px;
     border: 1px solid black;
-    flex-direction: column;
     background-color: black;
 }
 
 .row {
     display: flex;
-    height: 20px;
+    flex-grow: 1;
 }
 
 .block {
