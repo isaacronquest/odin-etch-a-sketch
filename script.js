@@ -1,18 +1,22 @@
 let width = 50;
 let height = 50;
-let canvas = document.querySelector('#canvas')
-let newSketchBtn = document.querySelector('#newSketchBtn')
+let canvas = document.querySelector('#canvas');
+let newSketchBtn = document.querySelector('#newSketchBtn');
 
 function newSketch () {
     for (i = 0;i < height;i++) {
         let row = document.createElement('div');
         row.className = 'row';
-    
-        for (let i = 0; i < width; i++) {
+        for (let j = 0; j < width; j++) {
             let block = document.createElement('div');
             block.className = 'block';
+
+            block.opacity = 10;
+
             block.addEventListener('mouseover', () => {
-                block.style.backgroundColor = getRandomColor();
+                block.style.backgroundColor = getRandomColor(block.opacity);
+                block.style.opacity = `${(block.opacity * 10)}%`;
+                block.opacity--;
             });
             row.appendChild(block);
         }

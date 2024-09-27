@@ -13,6 +13,7 @@ body {
     height: 960px;
     border: 1px solid black;
     flex-direction: column;
+    background-color: black;
 }
 
 .row {
